@@ -149,7 +149,7 @@ Knuth さんもこの問題を扱っているようなのですが、
 かなり価値ある事実なのできっと Knuth さんにメールしたら  
 小切手くれると思います。
 
-[nsnmsak][nsnmask] さん、情報提供有難うございました！
+[nsnmsak][nsnmsak] さん、情報提供有難うございました！
 
 
 [beam2d]: https://twitter.com/beam2d "beam2d"
