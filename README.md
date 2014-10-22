@@ -157,3 +157,4 @@ Knuth さんもこの問題を扱っているようなのですが、
 [m_ishihata]: https://twitter.com/m_ishihata "m_ishihata"
 [nsnmsak]: https://twitter.com/nsnmsak "nsnmsak"
 [inverse permutation]: http://mathworld.wolfram.com/InversePermutation.html "Inverser Permutation"
+[taocp]: http://ja.wikipedia.org/wiki/The_Art_of_Computer_Programming "The Art of Computer Programming"
