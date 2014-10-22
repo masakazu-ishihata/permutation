@@ -43,6 +43,26 @@ def permutate_Darsein(a, p):
     for i in xrange(n):
         p[i] -= n
 
+########################################
+# destractive permutation
+# requires addtional n log n bits
+# by m_ishihat
+########################################
+def permutate_m_ishihata(a, p):
+    n = len(a)
+
+    # additional n log n bits
+    r = range(n)
+    for i in xrange(n): r[ p[i] ] = i
+
+    # permutate a
+    for i in xrange(n):
+        j = p[i]
+        k = r[i]
+        a[i], a[j] = a[j], a[i]
+        p[i], p[k] = p[k], p[i]
+        r[i], r[j] = r[j], r[i]
+
 
 ########################################
 # main
@@ -62,7 +82,7 @@ if __name__ == '__main__':
     print "p =", p
 
     print "parmutate!!"
-    permutate_beam2d(a, p)
+    permutate_m_ishihata(a, p)
 
     print "a =", a
     print "p =", p
