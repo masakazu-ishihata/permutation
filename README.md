@@ -138,3 +138,4 @@ p を破壊するという踏んだり蹴ったりな手法ですが、
 
 [beam2d]: https://twitter.com/beam2d "beam2d"
 [Darsein]: https://twitter.com/Darsein "Darsein"
+[m_ishihata]: https://twitter.com/m_ishihata "m_ishihata"
