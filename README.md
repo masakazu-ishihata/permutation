@@ -136,6 +136,24 @@ p を破壊するという踏んだり蹴ったりな手法ですが、
 [beam2d][beam2d] さん、[Darsein][Darsein] さんありがとう！  
 他にも挑戦してくださった方々、ありがとう！
 
+## 追記
+
+この問題は順列 p をその逆関数 r に並び替える問題である  
+[Inverse Permutation][inverse permutation] と等価です。  
+どうやら [The Art of Computer Programming][taocp] 内で  
+Knuth さんもこの問題を扱っているようなのですが、  
+その手法も n bit の補助領域を使ってるぽいです。  
+(ちゃんと読んでないけど)  
+
+なので n に依存する補助領域を必要賭しない手法を見つければ  
+かなり価値ある事実なのできっと Knuth さんにメールしたら  
+小切手くれると思います。
+
+[nsnmsak][nsnmask] さん、情報提供有難うございました！
+
+
 [beam2d]: https://twitter.com/beam2d "beam2d"
 [Darsein]: https://twitter.com/Darsein "Darsein"
 [m_ishihata]: https://twitter.com/m_ishihata "m_ishihata"
+[nsnmsak]: https://twitter.com/nsnmsak "nsnmsak"
+[inverse permutation]: http://mathworld.wolfram.com/InversePermutation.html "Inverser Permutation"
