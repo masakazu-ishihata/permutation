@@ -22,9 +22,9 @@ O(n) の時間計算量で並べ替えを達成することになります。
 
 ここで以下の疑問が生じるわけです。
 
-「a から p(a) への並べ替えは、補助領域を使うことなく O(n) の時間計算量で可能か」
+「a から p(a) への並べ替えは、n に依存しない補助領域のみで O(n) の時間計算量で可能か」
 
-これを達成するする方法を教えてくれた人たちがいるので  
+この疑問にチャレンジして下さった人たちがいるので  
 感謝の気持ちを込めてここに紹介します。
 
 
@@ -32,7 +32,7 @@ O(n) の時間計算量で並べ替えを達成することになります。
 
     def permutate_beam2d(a, p):
         for i in xrange(len(a)):
-            t, p[i] = p[i], a[i]           # escape p[i] ->t and a[i] -> p[i]
+            t, p[i] = p[i], a[i]           # escape p[i] -> t and a[i] -> p[i]
             a[i] = a[t] if t > i else p[t] # change a[i] to (escaped) target value
 
 この手法のポイントは、  
@@ -44,8 +44,8 @@ a[i] を書き換えるときにその値を p[i] に待避することです。
 
 この方法は a のみではなく、p も破壊します。  
 また a の要素は p に待避可能であると仮定します。  
-つまり sizeof(a[i]) > sizeof(p[i]) であるときには、
-s = sizeof(a[i]) - sizeof(p[i]) とすれば、
+つまり sizeof(a[i]) > sizeof(p[i]) であるときには、  
+s = sizeof(a[i]) - sizeof(p[i]) とすれば、  
 sn bit の補助領域を必要とすることになります。
 
 

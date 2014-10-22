@@ -17,7 +17,7 @@ def permuate(a, p):
 ########################################
 def permutate_beam2d(a, p):
     for i in xrange(len(a)):
-        t, p[i] = p[i], a[i]           # escape p[i] ->t and a[i] -> p[i]
+        t, p[i] = p[i], a[i]           # escape p[i] -> t and a[i] -> p[i]
         a[i] = a[t] if t > i else p[t] # change a[i] to (escaped) target value
 
 
