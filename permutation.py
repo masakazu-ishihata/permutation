@@ -4,7 +4,7 @@ import numpy.random as rd
 
 ########################################
 # non-destractive permutation
-# using additional O(n) space
+# requires additional O(n) space
 ########################################
 def permuate(a, p):
     return [ a[ p[i] ] for i in xrange( len(a) ) ]
@@ -12,7 +12,7 @@ def permuate(a, p):
 
 ########################################
 # destractive permutation
-# assumming sizeof(a[i]) = sizeof(p[i])
+# assumes sizeof(a[i]) = sizeof(p[i])
 # by beam2d
 ########################################
 def permutate_beam2d(a, p):
@@ -23,7 +23,7 @@ def permutate_beam2d(a, p):
 
 ########################################
 # destractive permutation
-# using additional n log n bits
+# requires additional n bits
 # by Darsein
 ########################################
 def permutate_Darsein(a, p):
