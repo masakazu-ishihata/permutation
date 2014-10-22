@@ -4,7 +4,7 @@ import numpy.random as rd
 
 ########################################
 # non-destractive permutation
-# using addition O(n) memory
+# using additional O(n) space
 ########################################
 def permuate(a, p):
     return [ a[ p[i] ] for i in xrange( len(a) ) ]
@@ -13,9 +13,9 @@ def permuate(a, p):
 ########################################
 # destractive permutation
 # assumming sizeof(a[i]) = sizeof(p[i])
-# by beam2d, tonets
+# by beam2d
 ########################################
-def permuate1(a, p):
+def permutate_beam2d(a, p):
     for i in xrange(len(a)):
         t, p[i] = p[i], a[i]           # escape p[i] ->t and a[i] -> p[i]
         a[i] = a[t] if t > i else p[t] # change a[i] to (escaped) target value
@@ -23,10 +23,10 @@ def permuate1(a, p):
 
 ########################################
 # destractive permutation
-# assuming sizeof(p[i]) > log(2n)
-# by calicolicali
+# using additional n log n bits
+# by Darsein
 ########################################
-def permutate2(a, p):
+def permutate_Darsein(a, p):
     n = len(a)
 
     # permutate a
@@ -62,7 +62,7 @@ if __name__ == '__main__':
     print "p =", p
 
     print "parmutate!!"
-    permutate2(a, p)
+    permutate_beam2d(a, p)
 
     print "a =", a
     print "p =", p

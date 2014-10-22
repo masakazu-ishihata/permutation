@@ -16,12 +16,13 @@ a を p 順に並べ替えて得られる配列を p(a) とします。
     def permuate(a, p):
         return [ a[ p[i] ] for i in xrange( len(a) ) ]
 
-この関数は O(n) の時間計算量で O(n) の新たな配列を生成しています。  
-
+今 sizeof(a[i]) を d とすれば、  
+この関数は dn bits の補助領域を利用して  
+O(n) の時間計算量で並べ替えを達成することになります。  
 
 ここで以下の疑問が生じるわけです。
 
-「a から p(a) への並べ替えは、外部メモリを使うことなく O(n) の時間計算量で可能か」
+「a から p(a) への並べ替えは、補助領域を使うことなく O(n) の時間計算量で可能か」
 
 これを達成するする方法を教えてくれた人たちがいるので  
 感謝の気持ちを込めてここに紹介します。
@@ -29,7 +30,7 @@ a を p 順に並べ替えて得られる配列を p(a) とします。
 
 ## 方法1 : [beam2d][beam2d] 法
 
-    def permuate1(a, p):
+    def permutate_beam2d(a, p):
         for i in xrange(len(a)):
             t, p[i] = p[i], a[i]           # escape p[i] ->t and a[i] -> p[i]
             a[i] = a[t] if t > i else p[t] # change a[i] to (escaped) target value
@@ -43,11 +44,14 @@ a[i] を書き換えるときにその値を p[i] に待避することです。
 
 この方法は a のみではなく、p も破壊します。  
 また a の要素は p に待避可能であると仮定します。  
-つまり sizeof(a[i]) > sizeof(p[i]) であるときには使えません。
+つまり sizeof(a[i]) > sizeof(p[i]) であるときには、
+s = sizeof(a[i]) - sizeof(p[i]) とすれば、
+sn bit の補助領域を必要とすることになります。
+
 
 ## 方法2 : [Darsein][Darsein] 法
 
-    def permutate2(a, p):
+    def permutate_Darsein(a, p):
         n = len(a)
 
         # permutate a
@@ -85,12 +89,14 @@ p[i] >= n ならば a[i] は編集済みであるというフラグを立てる�
 
 ## まとめ
 
-方法1は a の値を p に待避可能と仮定すれば O(n) で並べ替え可能。  
-方法2は n bit の補助領域があれば O(n) で並べ替え可能。  
+方法1は a の値を p に待避可能と仮定すれば p を破壊するが O(n) で並べ替え可能。  
+方法2は n bit の補助領域があれば p を破壊することなく O(n) で並べ替え可能。  
 
 つまり最初の疑問にはまだ答えられていない状態です。  
 
-興味ある人は考えてみてね！
+興味ある人は考えてみてね！  
+[beam2d][beam2d] さん、[Darsein][Darsein] さんありがとう！  
+他にも挑戦してくださった方々、ありがとう！
 
 [beam2d]: https://twitter.com/beam2d "beam2d"
 [Darsein]: https://twitter.com/Darsein "Darsein"
